@@ -21,10 +21,12 @@ namespace letitgogy
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/bootstrap-datepicker.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap3-flatly.min.css",
+                      "~/Content/bootstrap3-cerulean.css",
+                      "~/Content/bootstrap-datepicker3.css",
                       "~/Content/site.css"));
         }
     }

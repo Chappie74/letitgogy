@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201807141956416_1st create.Designer.cs">
       <DependentUpon>201807141956416_1st create.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807142135458_MoreCustomFieldsToUser.cs" />
+    <Compile Include="Migrations\201807142135458_MoreCustomFieldsToUser.Designer.cs">
+      <DependentUpon>201807142135458_MoreCustomFieldsToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -215,13 +219,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\bootstrap3-flatly.min.css" />
+    <Content Include="Content\bootstrap3-cerulean.css" />
+    <Content Include="Content\bootstrap3-sandstone.min.css" />
+    <Content Include="Content\bootstrap3-united.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -239,6 +247,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\register.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
@@ -298,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807141956416_1st create.resx">
       <DependentUpon>201807141956416_1st create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807142135458_MoreCustomFieldsToUser.resx">
+      <DependentUpon>201807142135458_MoreCustomFieldsToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

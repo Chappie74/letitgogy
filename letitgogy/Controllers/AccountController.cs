@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using letitgogy.Models;
+using System.Collections.Generic;
 
 namespace letitgogy.Controllers
 {
@@ -139,6 +140,26 @@ namespace letitgogy.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            List<SelectListItem> gender = new List<SelectListItem>();
+            gender.Add(new SelectListItem
+            {
+                Text = "Male",
+                Value = "Male"
+            });
+
+            gender.Add(new SelectListItem
+            {
+                Text = "Female",
+                Value = "Female"
+            });
+
+            gender.Add(new SelectListItem
+            {
+                Text = "Other",
+                Value = "Other"
+            });
+
+            ViewBag.Genders = gender;
             return View();
         }
 
@@ -147,11 +168,22 @@ namespace letitgogy.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
+        public async Task<ActionResult> Register(RegisterViewModel model, string Gender)
+        {            
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.Username,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName, 
+                    Address = model.Address, 
+                    PhoneNumber = model.Phone, 
+                    DOB = DateTime.Parse(model.DOB), 
+                    Gender = model.Gender, 
+                    Email = model.Email
+
+                    
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -169,6 +201,24 @@ namespace letitgogy.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            List<SelectListItem> gender = new List<SelectListItem>();
+            gender.Add(new SelectListItem
+            {
+                Text = "Male",
+                Value = "Male"
+            });
+            gender.Add(new SelectListItem
+            {
+                Text = "Female",
+                Value = "Female"
+            });
+            gender.Add(new SelectListItem
+            {
+                Text = "Other",
+                Value = "Other"
+            });
+            //repopulate the gender list so it cna be passed to the view
+            ViewBag.Genders = gender;
             return View(model);
         }
 
